@@ -41,15 +41,30 @@ let delbtn = document.getElementById('delete')
             delBtn.type = 'button'
             delBtn.value = 'delete'
             delBtn.onclick = () => {
-                localStorage.removeItem(object)
-                localStorage.removeItem(object.phone)
+                
                 localStorage.removeItem(object.email)
-                localStorage.removeItem(object.age)
+                
                 parentEle.removeChild(childEle)
             }
+            const editBtn  = document.createElement('input')
+        editBtn.type = 'button'
+        editBtn.value = 'edit'
+        editBtn.onclick = () => {
+            localStorage.removeItem(object.email)
+            parentEle.removeChild(childEle)
+
+            document.getElementById('userTag').value = object.name
+            document.getElementById('phoneTag').value = object.phone
+            document.getElementById('emailTag').value = object.email
+            document.getElementsByTagName('ageTag').value = object.age
+        }
+            childEle.appendChild(editBtn)
             childEle.appendChild(delBtn)
             parentEle.appendChild(childEle)
 
         }
+
+
+        
     
        
